@@ -136,6 +136,7 @@ public:
 	CPrefixCollection* GetPrefixes() { return m_pPrefixes; }
 	CSignatureCollection* GetSignatures() { return m_pSignatures; }
 	CStemCollection* GetStems() { return m_pStems; }
+	CStemCollection* GetProtoStems(){return m_pProtostems;}
 	CSuffixCollection* GetSuffixes() { return m_pSuffixes; }
 	int GetNumberOfStems();
 	int GetNumberOfSuffixes();

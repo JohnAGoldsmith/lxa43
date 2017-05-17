@@ -367,6 +367,7 @@ void LinguisticaMainWindow::updateTreeViewSlot()
 									  ALL_SUFFIX_SIGNATURES );
 	}
 
+
 //=================================================================================================
   // END CONNECTED TO SuffixesItem
   // START CONNECTED TO PrefixesItem
@@ -767,6 +768,19 @@ Q3ListViewItem* LinguisticaMainWindow::GetMiniLexiconSubTree(
 			.arg(IntToStringWithCommas(count)),
 			POS, index));
 	}
+
+	// May 2017 JG
+	{
+		const int count = lexicon->GetProtoStems()->GetCount();
+		if (count > 0) {
+			static_cast<void>(new CTreeViewItem(
+					AffixesItem,
+					QString("Protostems %1")
+							.arg(IntToStringWithCommas(count)),
+					STEMS, index));
+		}
+	}
+
 
 	return LexiconItem;
 }

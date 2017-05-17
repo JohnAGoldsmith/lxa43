@@ -32,6 +32,7 @@ CMiniLexicon::CMiniLexicon(CLexicon* lexicon, int index,
 			new CPrefixCollection(this) :
 			0),
 	m_pStems(new CStemCollection(this)),
+    m_pProtostems(new CStemCollection(this)),
 	m_pSignatures(is_initial(affixLocation) ?
 		new CSignatureCollection(this, m_pPrefixes, affixLocation) :
 		new CSignatureCollection(this, m_pSuffixes, affixLocation)),
@@ -58,6 +59,7 @@ CMiniLexicon::~CMiniLexicon()
 	delete m_pSuffixes;
 	delete m_pPrefixes;
 	delete m_pStems;
+	delete m_pProtostems;
 	delete m_pSignatures;
 	delete m_pPOS;
 	delete m_DescriptionLength;
