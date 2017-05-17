@@ -35,4 +35,3 @@ Using Linguistica
 -----------------
 
 See <http://linguistica.uchicago.edu/linguistica.html>.  Have fun!
-# lxa43
