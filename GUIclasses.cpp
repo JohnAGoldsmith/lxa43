@@ -102,7 +102,7 @@ void GUIWordCollection::ListDisplay (Q3ListView* pView, StringToString* filter,
 
     if ( !bAnalyzedWordsOnly )
     { // *** JG
-     //   pWord->WordListDisplay( pView, filter, m_DisplayMode, m_MiniLexicon->GetLexicon()->GetNumberOfCharacterTypes() );
+       pWord->WordListDisplay( pView, filter, m_DisplayMode, m_MiniLexicon->GetLexicon()->GetNumberOfCharacterTypes() );
     }
     else
     if( bAnalyzedWordsOnly && pWord->Size() > 1 )
@@ -608,10 +608,10 @@ CStemListViewItem::CStemListViewItem( Q3ListView *parent,
 					int char_count )
 : Q3ListViewItem( parent, stem )
 { // *** JG
-//  m_Stem = pStem;
-//  m_filter = filter;
-//  m_char_count = char_count;
-//  m_mini = mini;
+  m_Stem = pStem;
+  m_filter = filter;
+  m_char_count = char_count;
+  m_mini = mini;
 }
 
 
@@ -742,19 +742,19 @@ QString CStemListViewItem::text( int column ) const
 //    if( m_Stem ) return QString("%1").arg( m_Stem->ComputeDL( m_char_count ) );
 //    else return "";
 
-	return "dummy-stem";
+	return "";
   case 2:
     //if( m_Stem ) return QString("%1").arg( m_Stem->GetLengthOfPointerToMe( ) );
     //else return "";
   // *** JG May 2017
-	  return "dummy-stem-length-ptr";
+	  return "";
   
   case 3:
-	  // *** JGhttps://www.cs.cmu.edu/~gilpin/tutorial/
+	  // *** JG   https://www.cs.cmu.edu/~gilpin/tutorial/
 
     if( m_Stem )
     {
-    //  return QString("%1").arg( m_Stem->GetCorpusCount() );
+      return QString("%1").arg( m_Stem->GetCorpusCount() );
     }
     else
     {
@@ -787,15 +787,15 @@ QString CStemListViewItem::text( int column ) const
    
 
   case 4:
-	  // *** JG
- 	return "Case 4";
-    if( m_Stem )
+ 
+     if( m_Stem )
     {
 //		qDebug( m_Stem->Display() );
       sigs = m_Stem->GetSuffixSignature();
       if( sigs ) 
 	  {
 //		qDebug( ((CParse*)sigs)->Display('.') );
+
 		  return sigs->Display('.', m_filter);
 	  }
       else return "";
@@ -805,8 +805,8 @@ QString CStemListViewItem::text( int column ) const
 	  //return " case 5" ;
     if( m_Stem )
     {
-	// *** JG
-		return " line 808";
+	 
+		 
       sigs = m_Stem->GetPrefixSignature();
       if( sigs ) return sigs->Display('.', m_filter);
       else return "";
