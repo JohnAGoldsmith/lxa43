@@ -56,8 +56,8 @@ public:
 	T* operator[] ( uint n );
 
 	void				AddPointer( T* );
-	T*				AddToCollection( const CParse& );
-	T*				AddToCollection( const CStringSurrogate& );
+	T*				    AddToCollection( const CParse& );
+	T*				    AddToCollection( const CStringSurrogate& );
 	bool				Contains( CStringSurrogate& );
 	void				CreatePointerArray();
 	void				CreateReverseTrie();

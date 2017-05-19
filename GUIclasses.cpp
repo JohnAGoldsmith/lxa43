@@ -37,7 +37,7 @@ void GUIWordCollection::ListDisplay (Q3ListView* pView, StringToString* filter,
   for (int i = 0; i < m_Words->GetCount(); ++i) {
     n = m_Words->GetAt(i)->GetNumberOfStems();
     if (n > MaxNumberOfStems )
-    { MaxNumberOfStems = n; }
+    { MaxNumberOfStems = n; } // And this is never used??? JG 5/17
   }
 
   // Remove all previous columns
@@ -66,7 +66,7 @@ void GUIWordCollection::ListDisplay (Q3ListView* pView, StringToString* filter,
 	  pView->addColumn( "Tier 1 template");
 	  pView->addColumn( "Tier 2");
   }
-  else 
+  else
   {
 	  pView->addColumn( "Word" );
 	  pView->addColumn( "Log prob (unigram)" );
@@ -102,7 +102,7 @@ void GUIWordCollection::ListDisplay (Q3ListView* pView, StringToString* filter,
 
     if ( !bAnalyzedWordsOnly )
     { // *** JG
-       pWord->WordListDisplay( pView, filter, m_DisplayMode, m_MiniLexicon->GetLexicon()->GetNumberOfCharacterTypes() );
+        pWord->WordListDisplay( pView, filter, m_DisplayMode, m_MiniLexicon->GetLexicon()->GetNumberOfCharacterTypes() );
     }
     else
     if( bAnalyzedWordsOnly && pWord->Size() > 1 )

@@ -49,7 +49,7 @@ private:
 public:
 
 	CStem*			operator<< ( CStem* );
-    	CStem*			operator<< ( CStem& );
+    CStem*			operator<< ( CStem& );
 	CStem*			operator<< ( CStringSurrogate& );
 	CStem*			operator<< ( CParse* );
 	CStem*			operator<< ( QString );
